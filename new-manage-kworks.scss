@@ -1,0 +1,653 @@
+$tablet: 900px;
+$orange-bg-normal: #FFF5E2;
+$red-bg-normal: #FEF5F5;
+$blue-bg-hover: #F7FBFF;
+
+// 16698 Убрать new- и удалить стили без new- чтобы открыть на всех
+.new-manage-kworks-item {
+	border: 1px solid $gray-border;
+	border-radius: 6px;
+	margin-bottom: 12px;
+	background-color: white;
+	transition: box-shadow 0.25s ease-in-out;
+	overflow: hidden;
+
+	* {
+		box-sizing: border-box;
+	}
+
+	&-wrap {
+		position: relative;
+	}
+
+	.newfoxdetails {
+		.new-manage-kworks-item__title {
+			font-weight: 600;
+			a {
+				color: $gray;
+			}
+		}
+	}
+
+	@media only screen and (min-width: $tablet-min-width) {
+		.newfoxdetails {
+			padding: 11px 19px;
+			width: auto !important;
+			height: 128px;
+			max-height: 128px;
+			flex-grow: 1;
+
+			.new-manage-kworks-item__title {
+				line-height: 24px;
+				max-height: 50px;
+			}
+		}
+
+		.newfoximg {
+			border-right: 1px solid $gray-border;
+			min-width: 192px;
+			overflow: hidden;
+
+			a {
+				height: 128px;
+			}
+		}
+	}
+
+	.manage-kworks-actions {
+		margin-right: 1px;
+
+		&__item {
+			&:not(:last-of-type) {
+				margin-right: 4px;
+			}
+		}
+	}
+
+	&__stats {
+		background: $gray-bg-new;
+		box-sizing: border-box;
+		width: 230px;
+		padding: 15px 13px 16px 12px;
+		flex-shrink: 0;
+		display: flex;
+		flex-direction: column;
+
+		&-rating {
+			display: flex;
+			justify-content: center;
+			text-align: center;
+			min-height: 60px;
+			flex-direction: column;
+			flex-grow: 1;
+			font-size: 12px;
+			line-height: 16px;
+
+			&-dummy {
+				flex-shrink: 0;
+				color: $gray-tooltip;
+			}
+
+			&-item {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: 8px;
+				color: $gray;
+
+				&-value {
+					font-weight: 600;
+
+					&.bad {
+						color: $red;
+					}
+
+					&.satisfactorily {
+						color: $orange;
+					}
+
+					&.good,
+					&.excellent {
+						color: $green;
+					}
+
+				}
+			}
+		}
+	}
+
+	&__metrics {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: $gray-support;
+		font-size: 12px;
+		line-height: 16px;
+		flex-grow: 0;
+
+		&-item {
+			display: flex;
+
+			&:not(:last-of-type) {
+				margin-right: 9px;
+			}
+		}
+
+		@media only screen and (max-width: $phone-max-width) {
+			align-self: flex-end;
+			margin-top: 11px;
+		}
+	}
+
+	&__price {
+		&-wrapper {
+			margin-left: auto;
+			font-size: 11px;
+			line-height: 15px;
+			font-weight: 600;
+			text-align: right;
+
+			.price-th {
+				margin-bottom: -2px;
+				font-size: 11px;
+				line-height: 15px;
+				color: $gray-support;
+
+				.price {
+					font-weight: 600;
+					font-size: 11px;
+					color: $gray-support;
+				}
+
+				.unit-qty {
+					color: $green;
+				}
+			}
+		}
+
+		color: $green;
+	}
+
+	&__notify {
+		border-top: 1px solid $gray-border;
+		display: flex;
+		flex-wrap: wrap;
+		white-space: pre-wrap;
+		color: $gray;
+
+		&.notify {
+			&-draft {
+				@media only screen and (max-width: $phone-max-width) {
+					background: $gray-bg-new;
+				}
+			}
+
+			&-outsider {
+				@media only screen and (min-width: $tablet-min-width) {
+					a {
+						border-bottom: 1px solid;
+					}
+				}
+			}
+		}
+
+		&.importance {
+			&-medium {
+				background: $orange-bg-normal;
+			}
+
+			&-high {
+				background: $red-bg-normal;
+			}
+		}
+
+		&-title {
+			.notify-title-desktop-link {
+				color: $blue-border;
+				flex-shrink: 0;
+				font-weight: 600;
+				border-radius: 6px;
+				padding: 0 8px;
+				height: 40px;
+				display: flex;
+				text-align: center;
+				align-items: center;
+				margin-top: -8px;
+				margin-bottom: -8px;
+				width: fit-content;
+
+				&:hover {
+					background: rgba(23, 125, 230, .05);
+				}
+			}
+		}
+
+		@media only screen and (min-width: $tablet-min-width) {
+			align-items: flex-start;
+			padding: 16px;
+
+			&-title {
+				display: flex;
+				flex-grow: 1;
+
+				.kwork-icon {
+					margin-right: 17px;
+				}
+
+				.notify-title-desktop {
+					flex-grow: 1;
+				}
+
+				.notify-title-desktop-link {
+					margin-top: -8px;
+					margin-bottom: -8px;
+				}
+			}
+
+			&-body {
+				opacity: 0;
+				display: none !important;
+			}
+		}
+
+		@media only screen and (max-width: $phone-max-width) {
+			flex-direction: column;
+
+			&.notify-draft {
+				.new-manage-kworks-item__notify-title {
+					align-items: center;
+				}
+			}
+
+			&-title {
+				padding: 10px 8px 10px 36px;
+				display: flex;
+				position: relative;
+
+				.kwork-icon {
+					width: 20px;
+					height: 20px;
+					position: absolute;
+					top: 10px;
+					left: 8px;
+
+					&.icon-kwork-draft {
+						top: 50%;
+						transform: translateY(-50%);
+					}
+				}
+
+				&.collapsed,
+				&.not-collapsed {
+					&:after {
+						content: '';
+						display: block;
+						width: 24px;
+						height: 24px;
+						background: url('/images/icons/icon-arrow-down-24.svg') center center no-repeat;
+						position: absolute;
+						right: 4px;
+						top: 8px;
+					}
+				}
+
+				&.not-collapsed {
+					&:after {
+						transform: scaleY(-1);
+					}
+				}
+
+				.notify-title-desktop-link {
+					margin-top: -6px;
+					margin-bottom: -6px;
+				}
+			}
+
+			&-body {
+				padding: 0 8px 16px 36px;
+			}
+
+			.kw-link-underline {
+				border-bottom: none;
+			}
+		}
+
+		.flex-grow-1 {
+			flex-grow: 1;
+		}
+	}
+
+	&__draft-stamp {
+		box-sizing: border-box;
+		font-size: 19px;
+		height: 40px;
+		width: 116px;
+		border: 3px solid #ccc;
+		border-radius: 6px;
+		transform: rotate(-16.62deg);
+		color: #ccc;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		user-select: none;
+	}
+
+	&__portfolio-fill-percent {
+		position: absolute;
+		bottom: 8px;
+		left: 12px;
+		right: 12px;
+		font-size: 12px;
+		color: $white;
+		height: 24px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		border-radius: 99999px;
+
+		&.portfolio-fill-percent {
+			&-bad {
+				background: $red;
+			}
+
+			&-good {
+				background: $orange;
+			}
+
+			&-excellent {
+				background: $green;
+			}
+		}
+
+		/* OLD */
+		margin: auto 0;
+		text-align: center;
+		font-size: 12px;
+		visibility: hidden;
+		/* #OLD */
+	}
+
+	.responsivefoximages {
+		a {
+			img {
+				width: 100%;
+				max-width: 100%;
+				height: auto;
+			}
+
+			img.isHorizontalImg {
+				height: 100%;
+				width: auto;
+				max-width: none;
+			}
+
+			img.centered-image {
+				position: absolute;
+				left: 50%;
+				top: 50%;
+				transform: translate(-50%, -50%);
+			}
+		}
+	}
+
+	&:hover {
+		box-shadow: 0 6px 26px -5px rgba(97, 61, 2, 0.30);
+
+		.new-manage-kworks-item__portfolio-fill-percent {
+			visibility: visible;
+		}
+	}
+
+	&__inner {
+		display: flex;
+		position: relative;
+	}
+
+	&__left-part {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__right-part {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
+
+	&__top-part {
+		display: flex;
+	}
+
+	&__title {
+		margin-bottom: 5px;
+		width: 100%;
+	}
+
+	&__top-right-part {
+		display: flex;
+		padding-left: 10px;
+	}
+
+	&__index {
+		min-height: 20px;
+
+		.tooltipster:hover {
+			.tooltip_circle {
+				background: #e8e7e3 !important;
+				color: white !important;
+				border: 2px solid #e8e7e3 !important;
+			}
+		}
+	}
+
+	&-left-bottom-line {
+		padding-bottom: 10px;
+	}
+
+	&_underline {
+		bottom: 10px;
+		height: 10px;
+		width: 100%;
+		border-bottom: 1px solid #ddd;
+		margin: auto 0 0;
+	}
+
+	&__rating {
+		.fox-express {
+			margin: 0; //noconflict
+		}
+
+		&-link {
+			font-size: 14px;
+			line-height: 16px;
+			color: #457EDB;
+			font-family: 'Open Sans', Helvetica, sans-serif;
+			font-weight: 600;
+			background: none;
+			padding: 0;
+			border: none;
+		}
+	}
+
+	&__draft-hint {
+		a {
+			text-decoration: none !important;
+		}
+	}
+
+	.tooltip_circle {
+		&--gray-border-field {
+			&:not(.tooltip_circle_hover):hover {
+				background: inherit !important;
+			}
+		}
+	}
+}
+
+.table-manage-kworks {
+	td {
+		padding: 0;
+	}
+}
+
+
+@media only screen and (min-width: $tablet-min-width) {
+	.m-visible {
+		display: none !important;
+	}
+}
+
+@media only screen and (max-width: $phone-max-width) {
+	// 16698 Убрать new- и удалить стили без new- чтобы открыть на всех
+	.new-manage-kworks-item {
+		&:not(:hover) {
+			.manage-kworks-actions__item {
+				visibility: visible;
+			}
+		}
+
+		&__inner {
+			flex-direction: row;
+			padding: 7px;
+		}
+
+		&__index {
+			min-height: 1px;
+		}
+
+		.newfoxdetails {
+			padding-left: 0; //noconflict
+			.new-manage-kworks-item__title {
+				font-size: 12px;
+				line-height: 16px;
+				max-height: 64px;
+			}
+		}
+
+		.newfoximg {
+			width: 126px;
+			margin-bottom: 0 !important; //novonflict
+
+			img {
+				width: 126px;
+			}
+
+			a {
+				border: 1px solid $gray-bg;
+				border-radius: 6px;
+				overflow: hidden;
+				width: 126px;
+				height: 84px;
+			}
+		}
+
+		.responsivefoximages {
+			margin-right: 4px;
+		}
+
+		&__portfolio-fill-percent {
+			display: none;
+		}
+
+		&__right-part {
+			position: relative;
+			margin-top: 0; //noconflict
+		}
+
+		&__rating {
+			align-self: flex-start;
+		}
+
+		.kwork-badge-rating__wrap {
+
+		}
+
+		&__bottom-part {
+			flex-direction: column;
+		}
+
+		&__top-right-part {
+			padding-left: 0;
+		}
+
+		&__price {
+			width: 100%;
+		}
+
+		&-left-bottom-line {
+			padding-bottom: 5px;
+		}
+
+		// fox_style conflict
+		.flex-column {
+			display: flex !important;
+		}
+	}
+
+	.centerwrap {
+		&.manage-kworks-wrap {
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+	}
+}
+
+@media only screen and (max-width: 370px) {
+
+	// 16698 Убрать new- и удалить стили без new- чтобы открыть на всех
+	.new-manage-kworks-item__top-right-part {
+		flex-flow: column;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	// 16698 Убрать new- и удалить стили без new- чтобы открыть на всех
+	.new-manage-kworks-item {
+		max-width: 100%;
+		min-height: 46px;
+		margin-bottom: 0;
+
+		// fox_style conflict
+		.newfoxdetails {
+			min-width: 0 !important;
+		}
+	}
+}
+
+.kwork-mobile-action-modal {
+	.k-modal-content__body {
+		padding: 0;
+	}
+
+	&__menu {
+		margin-bottom: 12px;
+
+		&-item {
+			height: 48px;
+			display: flex;
+			align-items: center;
+			font-weight: 600;
+			padding: 0 16px;
+
+			&:hover {
+				background: $blue-bg-hover;
+				color: $blue-new--hover;
+				cursor: pointer;
+
+				svg path {
+					fill: $blue-new--hover;
+				}
+			}
+
+			.menu-item-icon {
+				width: 20px;
+				height: 20px;
+				margin-right: 16px;
+			}
+		}
+	}
+}
+
+.kwork-item-tooltip-content {
+	max-width: 660px;
+	padding: 10px 5px;
+}
